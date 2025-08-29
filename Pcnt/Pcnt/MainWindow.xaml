@@ -3,52 +3,203 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Pcnt"
         mc:Ignorable="d"
-        Title="Picking Rate" Height="450" Width="400"
-        Background="AntiqueWhite" WindowStyle="SingleBorderWindow"
-        >
+        Title="Picking Rate" Height="480" Width="480"
+        Background="#1e1e1e" WindowStyle="SingleBorderWindow" Foreground="White">
+    <Window.Resources>
+        <!--공통 텍스트 스타일-->
+        <Style x:Key="HeadingText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,20,0,16"/>
+            <Setter Property="Foreground" Value="#f3f4f6"/>
+        </Style>
+        <!--버튼 스타일-->
+        <Style x:Key="BaseButton" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="Background" Value="#2d2d30"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="8"
+                                SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#3e3e40"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#007acc"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
 
+
+        </Style>
+        
+    </Window.Resources>
+
+    <!-- 방향키 → 커맨드 (실행 가능 여부는 VM CanExecute로 제어) -->
+    <Window.InputBindings>
+        <KeyBinding Key="Left"  Command="{Binding FailCommand}" />
+        <KeyBinding Key="Right" Command="{Binding SuccessCommand}" />
+        <KeyBinding Key="R"     Command="{Binding ResetCommand}" />
+        <KeyBinding Key="S"     Command="{Binding StartCommand}" />
+        <KeyBinding Key="F"     Command="{Binding FinishCommand}" />
+    </Window.InputBindings>
 
     <Grid KeyboardNavigation.DirectionalNavigation="None" Focusable="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <!-- 상단: 성공률 -->
             <RowDefinition Height="*"/>
+            <!-- 중간: Fail/Success -->
             <RowDefinition Height="Auto"/>
+            <!-- 정보: 시간/처리량 -->
+            <RowDefinition Height="Auto"/>
+            <!-- 하단: Start/Finish/Reset -->
+            <RowDefinition Height="Auto"/>
+            <!--하단 save 버튼-->
         </Grid.RowDefinitions>
-        <!--상단 성공률 표시-->
+
+        <!-- 상단: 성공률 -->
         <TextBlock Grid.Row="0"
-                   Text="{Binding AsyncState=}"
-                   FontSize="10"
-                   FontWeight="Bold"
+                   Text="{Binding SummaryText}"
+                   FontSize="28" FontWeight="Bold"
                    HorizontalAlignment="Center"
-                   Margin="0,20,0,20"/>
-        <!--버튼표시-->
+                   Margin="0,20,0,16"/>
+
+        <!-- 중간: 버튼 2개 -->
         <Grid Grid.Row="1" Margin="20,0,20,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+
+            <!-- 왼쪽: 실패 -->
+            <Button Grid.Column="0"
+                    Content="Fail"
+                    Command="{Binding FailCommand}"
+                    Background="#c62828" Foreground="White"
+                    FontSize="20" FontWeight="Bold"
+                    Margin="10" Height="110"
+                    Focusable="False" IsTabStop="False"/>
+
+            <!-- 오른쪽: 성공 -->
+            <Button Grid.Column="1"
+                    Content="Success"
+                    Command="{Binding SuccessCommand}"
+                    Background="#2e7d32" Foreground="White"
+                    FontSize="20" FontWeight="Bold"
+                    Margin="10" Height="110"
+                    Focusable="False" IsTabStop="False"/>
         </Grid>
-        
-        <!--왼쪽버튼-->
-        <Button Grid.Column="0"
-                Content="False"
-                Command="{Binding FailCommand}"
-                Background="Red" Foreground="White"
-                FontSize="18" FontWeight="Bold"
-                Margin="10"
-                Focusable="False" IsTabStop="False"/>
-        <!--오른쪽 버튼-->
-        <Button Grid.Column="1"
-                Content="Success"
-                Command="{Binding FailCommand}"
-                Background="Green" Foreground="White"
-                FontSize="18" FontWeight="Bold"
-                Margin="10"
-                Focusable="False" IsTabStop="False"/>
+
+        <!-- 정보: 시간 / 분당 처리량 -->
+        <Grid Grid.Row="2" Margin="20,12,20,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0"
+                       Text="{Binding ElapsedText}"
+                       FontSize="14" HorizontalAlignment="Left"/>
+            <TextBlock Grid.Column="1"
+                       Text="{Binding ThroughputText}"
+                       FontSize="14" HorizontalAlignment="Right"/>
+        </Grid>
+
+        <!-- 하단: 제어 버튼 -->
+        <Grid Grid.Row="3" Margin="0,20,0,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <!--사이트 리스트박스-->
+            <Grid Grid.Row="0" Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Column="0" Text="Site"
+                           VerticalAlignment="Center" Margin="28,0,26,0" FontWeight="SemiBold"/>
+                <ComboBox Grid.Column="1" Height="20"
+                          Width="20"
+                          ItemsSource="{Binding Sites}"
+                          SelectedItem="{Binding SelectedSite}"
+                          IsEditable="False"  
+                          />
+                <TextBox Grid.Column="3" Width="150" Height="20"
+                         Text="{Binding NewSite, UpdateSourceTrigger=PropertyChanged}"
+                         Margin="0,0,6,0"/>
+                <Button Grid.Column="4" Content="Add"
+                        Width="30" FontSize="10"                  
+                        Command="{Binding AddSiteCommand}"/>
+
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Column="0" Text="Outlet"
+                           VerticalAlignment="Bottom" Margin="20,0,20,0" FontWeight="SemiBold"/>
+                <ComboBox Grid.Column="1" Height="20"
+                          Width="20"
+                          ItemsSource="{Binding Outlet}"
+                          SelectedItem="{Binding SelectedOutlet}"
+                          IsEditable="False"/>
+                <TextBox Grid.Column="3" Width="150" Height="20"
+                         Text="{Binding NewOutlet, UpdateSourceTrigger=PropertyChanged}"
+                         Margin="0,0,6,0"/>
+                <Button Grid.Column="4" Content="Set"
+                        Width="30" FontSize="10"
+                        Command="{Binding SetOutletCommand}"/>
+            </Grid>
+               
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal"
+                        HorizontalAlignment="Center" Margin="0,16,0,20" >
+                <Button Content="Start"  Command="{Binding StartCommand}"
+                        Margin="6" Padding="10,8" Background="#2563eb" Foreground="White"
+                        FontWeight="SemiBold" />
+                <Button Content="Stop" Command="{Binding FinishCommand}"
+                        Margin="6" Padding="10,8" Background="#6b7280" Foreground="White"
+                        FontWeight="SemiBold" />
+                <Button Content="Reset"  Command="{Binding ResetCommand}"
+                        Margin="6" Padding="10,8" Background="#e5e7eb" Foreground="#111827"
+                        FontWeight="SemiBold" />
+            </StackPanel>
+        </Grid>
+        <!--Save 버튼-->
+        <Grid Grid.Row="4" Margin="10,0,10,10">
+            <Button Content="Save" Command="{Binding SaveCommand}"
+                      Margin="10" Padding="10,8" Background="Green" Foreground="AliceBlue"
+                      FontWeight="SemiBold" Width="50"/>
+        </Grid>
 
     </Grid>
-    <TextBlock 
-
 </Window>

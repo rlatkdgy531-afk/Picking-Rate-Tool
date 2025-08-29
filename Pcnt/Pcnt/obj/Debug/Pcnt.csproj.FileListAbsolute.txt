@@ -13,3 +13,17 @@ C:\Users\KSH\Desktop\ksh\개발\성공률계산기\Pcnt\Pcnt\obj\Debug\Pcnt.cspr
 C:\Users\KSH\Desktop\ksh\개발\성공률계산기\Pcnt\Pcnt\obj\Debug\Pcnt.csproj.CoreCompileInputs.cache
 C:\Users\KSH\Desktop\ksh\개발\성공률계산기\Pcnt\Pcnt\obj\Debug\Pcnt.exe
 C:\Users\KSH\Desktop\ksh\개발\성공률계산기\Pcnt\Pcnt\obj\Debug\Pcnt.pdb
+C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\bin\Debug\Pcnt.exe.config
+C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\bin\Debug\Pcnt.exe
+C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\bin\Debug\Pcnt.pdb
+C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\obj\Debug\MainWindow.baml
+C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\obj\Debug\MainWindow.g.cs
+C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\obj\Debug\App.g.cs
+C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\obj\Debug\Pcnt_MarkupCompile.cache
+C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\obj\Debug\Pcnt.g.resources
+C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\obj\Debug\Pcnt.Properties.Resources.resources
+C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\obj\Debug\Pcnt.csproj.GenerateResource.cache
+C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\obj\Debug\Pcnt.csproj.CoreCompileInputs.cache
+C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\obj\Debug\Pcnt.exe
+C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\obj\Debug\Pcnt.pdb
+C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\obj\Debug\Pcnt.csprojAssemblyReference.cache
