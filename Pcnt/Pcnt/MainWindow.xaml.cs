@@ -20,5 +20,15 @@ namespace Pcnt
             // 길게 누른 키로 연속 카운트가 싫다면 주석 해제
             // PreviewKeyDown += (_, e) => { if (e.IsRepeat) { e.Handled = true; } };
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
     }
 }

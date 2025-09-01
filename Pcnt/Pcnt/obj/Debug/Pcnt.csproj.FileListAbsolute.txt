@@ -26,4 +26,3 @@ C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\obj\Debug\Pcnt.csproj.Ge
 C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\obj\Debug\Pcnt.csproj.CoreCompileInputs.cache
 C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\obj\Debug\Pcnt.exe
 C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\obj\Debug\Pcnt.pdb
-C:\Users\KSH\Desktop\ksh\Develop\Picking Rate\Pcnt\Pcnt\obj\Debug\Pcnt.csprojAssemblyReference.cache

@@ -102,6 +102,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\Pretendard-Bold.ttf" />
+    <Resource Include="Fonts\Pretendard-ExtraBold.ttf" />
+    <Resource Include="Fonts\Pretendard-ExtraLight.ttf" />
+    <Resource Include="Fonts\Pretendard-Light.ttf" />
+    <Resource Include="Fonts\Pretendard-Medium.ttf" />
+    <Resource Include="Fonts\Pretendard-Regular.ttf" />
+    <Resource Include="Fonts\Pretendard-SemiBold.ttf" />
+    <Resource Include="Fonts\Pretendard-Thin.ttf" />
+    <Resource Include="Fonts\PretendardVariable.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -121,6 +130,37 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\Class_Symbol_1.png" />
+    <Resource Include="Assets\Class_Symbol_2.png" />
+    <Resource Include="Assets\Class_Symbol_3.png" />
+    <Resource Include="Assets\Class_Symbol_4.png" />
+    <Resource Include="Assets\Class_Symbol_5.png" />
+    <Resource Include="Assets\closeBtn_default.png" />
+    <Resource Include="Assets\closeBtn_MouseOver.png" />
+    <Resource Include="Assets\dashboard_icon.png" />
+    <Resource Include="Assets\Device.png" />
+    <Resource Include="Assets\device_icon.png" />
+    <Resource Include="Assets\exit_icon.png" />
+    <Resource Include="Assets\graph_icon.png" />
+    <Resource Include="Assets\help_icon.png" />
+    <Resource Include="Assets\img_contact.png" />
+    <Resource Include="Assets\img_home.png" />
+    <Resource Include="Assets\img_map.png" />
+    <Resource Include="Assets\img_message.png" />
+    <Resource Include="Assets\img_setting.png" />
+    <Resource Include="Assets\img_signout.png" />
+    <Resource Include="Assets\info_icon.png" />
+    <Resource Include="Assets\notification_icon.png" />
+    <Resource Include="Assets\setting_icon.png" />
+    <Resource Include="Assets\signature-logo.png" />
+    <Resource Include="Assets\Signiture_logo_aetech.png" />
+    <Resource Include="Assets\Signiture_logo_aetech_3.png" />
+    <Resource Include="Assets\tgBtn_default.png" />
+    <Resource Include="Assets\tgBtn_MouseOver.png" />
+    <Resource Include="Assets\에이트테크_로고.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

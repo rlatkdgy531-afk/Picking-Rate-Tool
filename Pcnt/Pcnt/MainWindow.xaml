@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Picking Rate" Height="480" Width="480"
-        Background="#1e1e1e" WindowStyle="SingleBorderWindow" Foreground="White">
+        Left="0" Top="0" Loaded="Window_Loaded" Closing="Window_Closing" Background="#1C1948" WindowStyle="None" Foreground="White">
     <Window.Resources>
         <!--공통 텍스트 스타일-->
         <Style x:Key="HeadingText" TargetType="TextBlock">
